@@ -1,4 +1,4 @@
-//Import config
+const path = require('path')
 require('./config/config');
 
 //Import express
@@ -14,6 +14,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
+
+//Habilitar el public
+const direct = path.resolve(__dirname , '../public');
+app.use(express.static(direct));
 
 //configuracion global de rutas
 app.use(require('./routes/index'));
