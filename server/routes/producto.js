@@ -2,9 +2,9 @@
 const express = require('express');
 const app = express();
 
-let {verificaToken} = require('../middlewares/autenticacion');
+const {verificaToken} = require('../middlewares/autenticacion');
 
-let Producto = require('../models/producto');
+const Producto = require('../models/producto');
 
 //Mostrar todas los productos
 app.get('/productos', verificaToken, (req, res) => {
